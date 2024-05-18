@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import IncomeExpenseForm from "./pages/IncomeExpenseForm";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Income from "./pages/Income";
+import Expense from "./pages/Expense";
+import Savings from "./pages/Savings";
+import Dashboard from "./pages/Dashboard";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/income">Income</Link>
+              </li>
+              <li>
+                <Link to="/expenses">Expense</Link>
+              </li>
+              <li>
+                <Link to="/savings">Savings</Link>
+              </li>
+              <li>
+                <Link to="/">New Entries</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/expenses" element={<Expense />} />
+            <Route path="/savings" element={<Savings />} />
+            <Route path="/" element={<IncomeExpenseForm />} />
+          </Routes>
+        </div>
+      </Router>
     </div>
   );
 }
-
-export default App;
