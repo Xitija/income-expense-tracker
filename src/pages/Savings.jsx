@@ -84,21 +84,46 @@ function Savings() {
           ))}
         </select>
       </div>
-      <ul>
-        {savingsTransactions.map((transaction, index) => (
-          <li key={index}>
-            Description - {transaction.description}
-            <br></br>
-            Amount - ₹{transaction.amount}
-            <br></br>
-            Category - {transaction.category}
-            <br></br>
-            Created Date - {transaction.createdAt}
-          </li>
-        ))}
-      </ul>
-      {}
-      {savingsTransactions.length === 0 && !loading && <p>No Transactions Available</p>}
+      <br></br>
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <b>Description</b>
+            </td>
+            <td>
+              <b>Amount</b>
+            </td>
+            <td>
+              <b>Category</b>
+            </td>
+            <td>
+              <b>Created Date</b>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {savingsTransactions.map((transaction, index) => (
+            <tr key={index}>
+              <td>
+                <b>{transaction.description}</b>
+              </td>
+              <td>
+                <b>₹{transaction.amount}</b>
+              </td>
+              <td>
+                <b>{transaction.category}</b>
+              </td>
+              <td>
+                <b>{transaction.createdAt}</b>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {savingsTransactions.length === 0 && !loading && (
+        <p>No Transactions Available</p>
+      )}
       {loading ? 'Loading ... ' : ''}
       <h2>Summary</h2>
       <div>Total Savings: ₹{totalSavings}</div>

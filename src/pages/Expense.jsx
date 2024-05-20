@@ -84,14 +84,34 @@ function Expense() {
           ))}
         </select>
       </div>
-      <ul>
-        {expenseTransactions.map((transaction, index) => (
-          <li key={index}>
-            {transaction.description}: ₹{transaction.amount}
-          </li>
-        ))}
-      </ul>
-      {expenseTransactions.length === 0 && !loading && <p>No Transactions Available</p>}
+      <br></br>
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <b>Transaction Description</b>
+            </td>
+            <td>
+              <b>Amount</b>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {expenseTransactions.map((transaction, index) => (
+            <tr key={index}>
+              <td>
+                <b>{transaction.description}</b>
+              </td>
+              <td>
+                <b> ₹{transaction.amount}</b>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {expenseTransactions.length === 0 && !loading && (
+        <p>No Transactions Available</p>
+      )}
       {loading ? 'Loading ... ' : ''}
       <h2>Summary</h2>
       <div>Total Expenses: ₹{totalExpenses}</div>

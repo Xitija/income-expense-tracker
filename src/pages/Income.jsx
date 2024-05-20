@@ -94,19 +94,35 @@ function Income() {
           ))}
         </select>
       </div>
-      <ul>
-        {incomeTransactions.map((transaction, index) => (
-          <li key={index}>
-            Description - {transaction.description}
-            <br></br>
-            Amount - ₹{transaction.amount}
-            <br></br>
-            Category - {transaction.category}
-            <br></br>
-            Created Date - {transaction.createdAt}
-          </li>
-        ))}
-      </ul>
+      <br></br>
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <b>Description</b>
+            </td>
+            <td>
+              <b>Amount</b>
+            </td>
+            <td>
+              <b>Category</b>
+            </td>
+            <td>
+              <b>Created Date</b>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {incomeTransactions.map((transaction, index) => (
+            <tr key={index}>
+              <td>{transaction.description}</td>
+              <td>₹{transaction.amount}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.createdAt}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       {incomeTransactions.length === 0 && !loading && (
         <p>No Transactions Available</p>
       )}
