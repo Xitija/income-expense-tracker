@@ -21,7 +21,7 @@ export default function App() {
             <Link className="link" to="/savings">Savings</Link>
             <Link className="link" to="/">New Entries</Link>
             <a className="link" target="_blank" href="https://github.com/Xitija/income-expense-tracker"><FaGithubSquare size={30} /></a>
-            <a className="link" target="_blank" href="https://replit.com/@xitija/Assignment-19"><FaServer size={30} /></a>
+            <a className="link" target="_blank" href="https://replit.com/@xitija/IncomeExpenseTracker?v=1"><FaServer size={30} /></a>
           </nav>
         </div>
         <div className="container">

@@ -15,6 +15,7 @@ const Dashboard = () => {
   const income = useSelector((state) => state.income);
   const expenses = useSelector((state) => state.expenses);
   const savings = useSelector((state) => state.savings);
+  const error = useSelector((state) => state.error);
 
   console.log(income);
   console.log(expenses);
@@ -63,6 +64,7 @@ const Dashboard = () => {
   };
 
   return (
+    <>
     <div className="report">
       <h2>Financial Reports</h2>
       <div>
@@ -106,6 +108,21 @@ const Dashboard = () => {
           </div>
         )}
     </div>
+    {error && (
+        <div>
+          <h2>Server Not Active 😨</h2>
+          <h3>
+            <a
+              href="https://drive.google.com/file/d/1Ebz5hTcFyhLTpMckQImkW9ETckcDW7xk/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Click here to view video
+            </a>
+          </h3>
+        </div>
+      )}
+    </>
   );
 };
 
